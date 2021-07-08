@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/inspirinator/static/css/main.a617e044.chunk.css",
+    "main.js": "/inspirinator/static/js/main.81bb9c02.chunk.js",
+    "main.js.map": "/inspirinator/static/js/main.81bb9c02.chunk.js.map",
+    "runtime-main.js": "/inspirinator/static/js/runtime-main.ce48c012.js",
+    "runtime-main.js.map": "/inspirinator/static/js/runtime-main.ce48c012.js.map",
+    "static/js/2.1ab08c99.chunk.js": "/inspirinator/static/js/2.1ab08c99.chunk.js",
+    "static/js/2.1ab08c99.chunk.js.map": "/inspirinator/static/js/2.1ab08c99.chunk.js.map",
+    "static/js/3.7b077295.chunk.js": "/inspirinator/static/js/3.7b077295.chunk.js",
+    "static/js/3.7b077295.chunk.js.map": "/inspirinator/static/js/3.7b077295.chunk.js.map",
+    "index.html": "/inspirinator/index.html",
+    "static/css/main.a617e044.chunk.css.map": "/inspirinator/static/css/main.a617e044.chunk.css.map",
+    "static/js/2.1ab08c99.chunk.js.LICENSE.txt": "/inspirinator/static/js/2.1ab08c99.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/inspirinator/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ce48c012.js",
+    "static/js/2.1ab08c99.chunk.js",
+    "static/css/main.a617e044.chunk.css",
+    "static/js/main.81bb9c02.chunk.js"
+  ]
+}
