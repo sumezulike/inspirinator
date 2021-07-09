@@ -35,8 +35,12 @@
 
 .icon-label {
   margin: 10px;
-  color: white;
   text-transform: capitalize;
+}
+
+.icon-label a {
+  color: white;
+  font-weight: bold;
 }
 
 .buttons {

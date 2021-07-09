@@ -7,9 +7,15 @@ function random_icon() {
     let rand_index = Math.floor(Math.random() * icons.length)
     let icon = icons[rand_index]
     let name = icon_names[rand_index]
-    let author = name.split("__")[0].replace("_", "-")
-    name = name.split("__")[1].replace("_", " ")
-    return {icon: icon, name: name, author: author, locked: false}
+    let author = name.split("__")[0].replace(/_/g, "-")
+    name = name.split("__")[1].replace(/_/g, " ")
+    let url = "https://game-icons.net/1x1/" + author + "/" + name.replace(/ /g, "-") + ".html"
+    return {
+        icon: icon,
+        name: name, author: author,
+        locked: false,
+        url: url
+    }
 }
 
 function random_icons(count) {
@@ -23,12 +29,18 @@ function random_icons(count) {
 function Tile(props) {
     return (
         <div className="tile">
-            <img src={props.src} id={props.index} alt={props.name} title={props.title}/>
+            <a href={props.url} target="_blank" rel="noreferrer">
+                <img src={props.src} id={props.index} alt={props.name} title={props.title}/>
+            </a>
             <div className="icon-extras">
                 <button className="lock-button" onClick={props.onclick}>
                     {props.button_text}
                 </button>
-                <span className="icon-label">{props.name}</span>
+                <span className="icon-label">
+                    <a href={props.url} target="_blank" rel="noreferrer">
+                        {props.name}
+                    </a>
+                </span>
             </div>
         </div>)
 }
@@ -61,8 +73,9 @@ function TilesBar() {
                     title={"\"" + i.name + "\" by " + i.author}
                     name={i.name}
                     index={index}
-                    button_text={icons[index].locked? "Unlock" : "Lock"}
+                    button_text={icons[index].locked ? "Unlock" : "Lock"}
                     onclick={() => (toggleLock(index))}
+                    url={i.url}
                 />)}
             </div>
             <div className="buttons">
