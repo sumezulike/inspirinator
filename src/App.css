@@ -22,8 +22,10 @@
 
 .tile {
   background-color: #999;
-  flex: 20%;
   margin: 10px;
+  padding-bottom: 3vw;
+  width: 20vw;
+  height: 20vw;
 }
 
 .icon-extras {

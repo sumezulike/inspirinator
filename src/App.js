@@ -1,5 +1,5 @@
 import './App.css';
-import {Component} from "react";
+import {useState} from "react";
 import {icon_names, icons} from "./icons";
 
 
@@ -9,7 +9,7 @@ function random_icon() {
     let name = icon_names[rand_index]
     let author = name.split("__")[0].replace("_", "-")
     name = name.split("__")[1].replace("_", " ")
-    return {icon: icon, name: name, author: author}
+    return {icon: icon, name: name, author: author, locked: false}
 }
 
 function random_icons(count) {
@@ -25,57 +25,51 @@ function Tile(props) {
         <div className="tile">
             <img src={props.src} id={props.index} alt={props.name} title={props.title}/>
             <div className="icon-extras">
-                <button className="lock-button" onClick={props.onclick}>{props.locked ? "Unlock" : "Lock"}</button>
+                <button className="lock-button" onClick={props.onclick}>
+                    {props.button_text}
+                </button>
                 <span className="icon-label">{props.name}</span>
             </div>
         </div>)
 }
 
-class TilesBar extends Component {
+function TilesBar() {
 
-    constructor(props) {
-        super(props);
-        this.state = {icons: random_icons(4), locked: [false, false, false, false]}
-        this.reroll = this.reroll.bind(this)
-        this.toggleLock = this.toggleLock.bind(this)
-    }
+    const [icons, setIcons] = useState(() => random_icons(4))
 
-    reroll() {
-        let new_icons = random_icons(this.state.icons.length)
-        for (let i = 0; i < this.state.locked.length; i++) {
-            if (this.state.locked[i]) {
-                new_icons[i] = this.state.icons[i]
+    function reroll() {
+        let new_icons = random_icons(icons.length)
+        for (let i = 0; i < icons.length; i++) {
+            if (icons[i].locked) {
+                new_icons[i] = icons[i]
             }
         }
-        this.setState({icons: new_icons})
+        setIcons(new_icons)
     }
 
-    toggleLock(i) {
-        let new_locked = this.state.locked
-        new_locked[i] = !new_locked[i]
-        this.setState({locked: new_locked})
+    function toggleLock(i) {
+        let new_icons = [...icons]
+        new_icons[i].locked = !icons[i].locked
+        setIcons(new_icons)
     }
 
-    render() {
-        console.log("Rendering")
-        return (
-            <div className="tilesBar">
-                <div className="tiles">
-                    {this.state.icons.map((i, index) => <Tile
-                        src={i.icon}
-                        title={"\"" + i.name + "\" by " + i.author}
-                        name={i.name}
-                        index={index}
-                        locked={this.state.locked[index]}
-                        onclick={() => (this.toggleLock(index))}
-                    />)}
-                </div>
-                <div className="buttons">
-                    <RerollButton onclick={this.reroll}/>
-                </div>
+    return (
+        <div className="tilesBar">
+            <div className="tiles">
+                {icons.map((i, index) => <Tile
+                    src={i.icon}
+                    title={"\"" + i.name + "\" by " + i.author}
+                    name={i.name}
+                    index={index}
+                    button_text={icons[index].locked? "Unlock" : "Lock"}
+                    onclick={() => (toggleLock(index))}
+                />)}
             </div>
-        )
-    }
+            <div className="buttons">
+                <RerollButton onclick={reroll}/>
+            </div>
+        </div>
+    )
 }
 
 
