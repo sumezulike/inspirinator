@@ -1,3 +1,7 @@
+body {
+  background-color: #282c34;
+}
+
 .header {
   text-align: center;
 }
@@ -7,25 +11,46 @@
   color: wheat;
 }
 
+.footer {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+.footer a {
+  color: wheat;
+  font-weight: bold;
+}
+
+:root {
+  --columns: 4;
+}
+
+@media (max-width: 600px) {
+  :root {
+    --columns: 2;
+  }
+}
+
 .tilesBar {
-  max-height: 50vh;
   background: #282c34;
-  margin: 10px;
 }
 
 .tiles {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  gap: 8px;
+  margin: 0 auto;
+  width: 50%;
 }
 
 .tile {
   background-color: #999;
+  width: 100%;
   margin: 10px;
-  padding-bottom: 3vw;
-  width: 20vw;
-  height: 20vw;
+  aspect-ratio: 1/1;
 }
 
 .icon-extras {
@@ -63,43 +88,31 @@
   width: 100%;
 }
 
+.buttons {
+  font-weight: bold;
+  font-size: 15em;
+}
+
 .buttons button {
   color: #444444;
   background: #F3F3F3;
   border: 1px #DADADA solid;
   padding: 5px 10px;
   border-radius: 2px;
-  font-weight: bold;
-  font-size: 29pt;
   outline: none;
   margin: 40px;
 }
 
 .lock-button {
-  color: #444444;
+  width: 30%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.lock-button button {
+  width: 100%;
   background: #F3F3F3;
   border: 1px #DADADA solid;
-  padding: 5px 10px;
   border-radius: 2px;
-  font-weight: bold;
-  font-size: 19pt;
-  outline: none;
-  margin-left: 10px;
 }
 
-.footer {
-  position: absolute;
-  bottom: 20px;
-  width: 100%;
-  color: white;
-  text-align: center;
-}
-
-.footer a {
-  color: wheat;
-  font-weight: bold;
-}
-
-body {
-  background-color: #282c34;
-}
