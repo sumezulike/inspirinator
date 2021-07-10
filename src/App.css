@@ -1,105 +1,125 @@
+body {
+    background-color: #282c34;
+}
+
 .header {
-  text-align: center;
+    text-align: center;
 }
 
 .header h1 {
-  font-size: calc(20px + 2vmin);
-  color: wheat;
-}
-
-.tilesBar {
-  max-height: 50vh;
-  background: #282c34;
-  margin: 10px;
-}
-
-.tiles {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.tile {
-  background-color: #999;
-  margin: 10px;
-  padding-bottom: 3vw;
-  width: 20vw;
-  height: 20vw;
-}
-
-.icon-extras {
-  display: flex;
-  justify-content: space-between;
-}
-
-.icon-label {
-  margin: 10px;
-  text-transform: capitalize;
-}
-
-.icon-label a {
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.buttons {
-  display: grid;
-  grid-template-areas: '. center .';
-  grid-template-columns: 1fr 150px 1fr;
-}
-
-.undo-button {
-  justify-self: flex-end;
-}
-
-.reroll-button {
-  grid-area: center;
-  justify-self: flex-end;
-}
-
-.reroll-button button {
-  width: 100%;
-}
-
-.buttons button {
-  color: #444444;
-  background: #F3F3F3;
-  border: 1px #DADADA solid;
-  padding: 5px 10px;
-  border-radius: 2px;
-  font-weight: bold;
-  font-size: 29pt;
-  outline: none;
-  margin: 40px;
-}
-
-.lock-button {
-  color: #444444;
-  background: #F3F3F3;
-  border: 1px #DADADA solid;
-  padding: 5px 10px;
-  border-radius: 2px;
-  font-weight: bold;
-  font-size: 19pt;
-  outline: none;
-  margin-left: 10px;
+    font-size: calc(20px + 2vmin);
+    color: wheat;
 }
 
 .footer {
-  position: absolute;
-  bottom: 20px;
-  width: 100%;
-  color: white;
-  text-align: center;
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    color: white;
+    text-align: center;
 }
 
 .footer a {
-  color: wheat;
-  font-weight: bold;
+    color: wheat;
+    font-weight: bold;
 }
 
-body {
-  background-color: #282c34;
+:root {
+    --columns: 4;
 }
+
+@media (max-width: 600px) {
+    :root {
+        --columns: 2;
+    }
+}
+
+.tilesBar {
+    background: #282c34;
+}
+
+.tiles {
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    gap: 8px;
+    width: 100%;
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+
+.tile {
+    background-color: #999;
+    width: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.icon-extras {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    align-items: center;
+}
+
+.icon-label {
+    margin: 10px;
+    text-transform: capitalize;
+    text-align: right;
+}
+
+.icon-label a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.buttons {
+    display: grid;
+    grid-template-areas: '. center .';
+    grid-template-columns: 1fr 150px 1fr;
+}
+
+.undo-button {
+    justify-self: flex-end;
+}
+
+.reroll-button {
+    grid-area: center;
+    justify-self: flex-end;
+}
+
+.reroll-button button {
+    width: 100%;
+}
+
+.buttons {
+    font-weight: bold;
+    font-size: 15em;
+}
+
+.buttons button {
+    color: #444444;
+    background: #F3F3F3;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
+    border-radius: 2px;
+    outline: none;
+    margin: 40px;
+}
+
+.lock-button {
+    width: 30%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+button.lock-button {
+    width: 100%;
+    height: 100%;
+    background: #F3F3F3;
+    border: 1px #DADADA solid;
+    border-radius: 2px;
+    box-sizing: border-box;
+    aspect-ratio: 1/1;
+}
+
