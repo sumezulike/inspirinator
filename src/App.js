@@ -48,6 +48,7 @@ function Tile(props) {
 function TilesBar() {
 
     const [icons, setIcons] = useState(() => random_icons(4))
+    const [prev_icons, setPrev] = useState(() => null)
 
     function reroll() {
         let new_icons = random_icons(icons.length)
@@ -56,6 +57,7 @@ function TilesBar() {
                 new_icons[i] = icons[i]
             }
         }
+        setPrev(icons)
         setIcons(new_icons)
     }
 
@@ -63,6 +65,13 @@ function TilesBar() {
         let new_icons = [...icons]
         new_icons[i].locked = !icons[i].locked
         setIcons(new_icons)
+    }
+
+    function undo() {
+        if(prev_icons != null) {
+            setIcons(prev_icons)
+            setPrev(null)
+        }
     }
 
     return (
@@ -79,6 +88,7 @@ function TilesBar() {
                 />)}
             </div>
             <div className="buttons">
+                {prev_icons != null && <UndoButton onclick={undo}/>}
                 <RerollButton onclick={reroll}/>
             </div>
         </div>
@@ -90,6 +100,15 @@ function RerollButton(props) {
     return (
         <div className="reroll-button">
             <button onClick={props.onclick}>Reroll</button>
+        </div>
+    )
+}
+
+
+function UndoButton(props) {
+    return (
+        <div className="undo-button">
+            <button onClick={props.onclick}>Undo</button>
         </div>
     )
 }
