@@ -4,7 +4,7 @@
 
 .header h1 {
   font-size: calc(20px + 2vmin);
-  color: white;
+  color: wheat;
 }
 
 .tilesBar {
@@ -41,13 +41,26 @@
 .icon-label a {
   color: white;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .buttons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-areas: '. center .';
+  grid-template-columns: 1fr 150px 1fr;
+}
+
+.undo-button {
+  justify-self: flex-end;
+}
+
+.reroll-button {
+  grid-area: center;
+  justify-self: flex-end;
+}
+
+.reroll-button button {
+  width: 100%;
 }
 
 .buttons button {
@@ -71,11 +84,7 @@
   font-weight: bold;
   font-size: 19pt;
   outline: none;
-}
-
-.reroll-button input:hover {
-  color: #666;
-  background: #D3D3D3;
+  margin-left: 10px;
 }
 
 .footer {
