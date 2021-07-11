@@ -12,11 +12,11 @@ body {
 }
 
 .footer {
-    position: fixed;
     bottom: 20px;
     width: 100%;
     color: white;
     text-align: center;
+    margin: 20px;
 }
 
 .footer a {
@@ -107,6 +107,7 @@ button.lock-button {
     margin-top: 8px;
     gap: 8px;
     align-items: center;
+    margin-bottom: 40px;
 }
 
 .undo-button {
