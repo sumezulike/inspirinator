@@ -33,8 +33,10 @@ function Tile(props) {
                 <img src={props.src} id={props.index} alt={props.name} title={props.title}/>
             </a>
             <div className="icon-extras">
-                <button className="lock-button" onClick={props.onclick}>
-                    {props.button_text}
+                <button className="lock-button" onClick={props.onclick} title="Pin">
+                    <span className={"material-icons" + (props.locked === true ? " red" : "")}>
+                        push_pin
+                    </span>
                 </button>
                 <span className="icon-label">
                     <a href={props.url} target="_blank" rel="noreferrer">
@@ -68,7 +70,7 @@ function TilesBar() {
     }
 
     function undo() {
-        if(prev_icons != null) {
+        if (prev_icons != null) {
             setIcons(prev_icons)
             setPrev(null)
         }
@@ -82,7 +84,7 @@ function TilesBar() {
                     title={"\"" + i.name + "\" by " + i.author}
                     name={i.name}
                     index={index}
-                    button_text={icons[index].locked ? "Unlock" : "Lock"}
+                    locked={icons[index].locked}
                     onclick={() => (toggleLock(index))}
                     url={i.url}
                 />)}
@@ -99,7 +101,11 @@ function TilesBar() {
 function RerollButton(props) {
     return (
         <div className="reroll-button">
-            <button onClick={props.onclick}>Reroll</button>
+            <button onClick={props.onclick}>
+                <span className="material-icons reroll-icon rotating" title="Roll again">
+                    casino
+                </span>
+            </button>
         </div>
     )
 }
@@ -108,7 +114,11 @@ function RerollButton(props) {
 function UndoButton(props) {
     return (
         <div className="undo-button">
-            <button onClick={props.onclick}>Undo</button>
+            <button onClick={props.onclick}>
+                <span className="material-icons undo-icon" title="Undo">
+                    undo
+                </span>
+            </button>
         </div>
     )
 }

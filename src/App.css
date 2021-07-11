@@ -26,8 +26,6 @@ body {
 
 button {
     background: #F3F3F3;
-    border: 1px #DADADA solid;
-    border-radius: 2px;
     font-size: 20px;
     font-weight: bold;
     outline: none;
@@ -37,7 +35,7 @@ button {
     --columns: 4;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     :root {
         --columns: 2;
     }
@@ -76,11 +74,18 @@ button {
     width: 30%;
 }
 
+.red {
+    color: orangered;
+    font-size: 40px;
+}
+
 button.lock-button {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
     aspect-ratio: 1/1;
+    background: #999;
+    border: none;
 }
 
 .icon-label {
@@ -101,10 +106,20 @@ button.lock-button {
     grid-template-columns: 1fr 150px 1fr;
     margin-top: 8px;
     gap: 8px;
+    align-items: center;
 }
 
 .undo-button {
     justify-self: flex-end;
+}
+
+.undo-button button {
+    border: 1px #DADADA solid;
+    border-radius: 8px;
+}
+
+.undo-icon {
+    font-size: 5rem;
 }
 
 .reroll-button {
@@ -115,6 +130,54 @@ button.lock-button {
 
 .reroll-button button{
     width: 100%;
+    aspect-ratio: 1/1;
+    background: #282c34;
+    color: white;
+    border: none;
+}
+
+.reroll-icon {
+    font-size: 9rem;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 
+
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotating:hover {
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}
