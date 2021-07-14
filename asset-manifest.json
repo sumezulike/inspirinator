@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/inspirinator/static/css/main.76aeaa3d.chunk.css",
-    "main.js": "/inspirinator/static/js/main.856a1173.chunk.js",
-    "main.js.map": "/inspirinator/static/js/main.856a1173.chunk.js.map",
+    "main.js": "/inspirinator/static/js/main.e79695b9.chunk.js",
+    "main.js.map": "/inspirinator/static/js/main.e79695b9.chunk.js.map",
     "runtime-main.js": "/inspirinator/static/js/runtime-main.67355fa1.js",
     "runtime-main.js.map": "/inspirinator/static/js/runtime-main.67355fa1.js.map",
     "static/js/2.68a1ce14.chunk.js": "/inspirinator/static/js/2.68a1ce14.chunk.js",
@@ -4103,6 +4103,6 @@
     "static/js/runtime-main.67355fa1.js",
     "static/js/2.68a1ce14.chunk.js",
     "static/css/main.76aeaa3d.chunk.css",
-    "static/js/main.856a1173.chunk.js"
+    "static/js/main.e79695b9.chunk.js"
   ]
 }
