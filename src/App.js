@@ -130,8 +130,11 @@ function App() {
                 <h1>Inspirinator</h1>
             </header>
             <TilesBar/>
-            <footer className="footer">All images made by <a
-                href="https://game-icons.net">https://game-icons.net</a></footer>
+            <footer className="footer">
+                All images made by <a
+                href="https://game-icons.net">https://game-icons.net</a> and released under the <a
+                href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0 License</a>
+            </footer>
         </div>
     );
 }
