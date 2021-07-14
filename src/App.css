@@ -113,13 +113,30 @@ button.lock-button {
     justify-self: flex-end;
 }
 
+.redo-button {
+    justify-self: flex-start;
+}
+
 .undo-button button {
+    border: 1px #DADADA solid;
+    border-radius: 8px;
+}
+
+.redo-button button {
     border: 1px #DADADA solid;
     border-radius: 8px;
 }
 
 .undo-icon {
     font-size: 5rem;
+}
+
+.redo-icon {
+    font-size: 5rem;
+}
+
+.disabled {
+    color: #bbb;
 }
 
 .reroll-button {
