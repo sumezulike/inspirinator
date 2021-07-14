@@ -50,7 +50,8 @@ function Tile(props) {
 function TilesBar() {
 
     const [icons, setIcons] = useState(() => random_icons(4))
-    const [prev_icons, setPrev] = useState(() => null)
+    const [history, setHistory] = useState(() => [icons])
+    const [index, setIndex] = useState(() => 0)
 
     function reroll() {
         let new_icons = random_icons(icons.length)
@@ -59,7 +60,11 @@ function TilesBar() {
                 new_icons[i] = icons[i]
             }
         }
-        setPrev(icons)
+
+        const new_history = history.slice(0, index+1)
+        new_history.push(new_icons)
+        setHistory(new_history)
+        setIndex((prev) => (prev+1))
         setIcons(new_icons)
     }
 
@@ -70,9 +75,18 @@ function TilesBar() {
     }
 
     function undo() {
-        if (prev_icons != null) {
-            setIcons(prev_icons)
-            setPrev(null)
+        if (index > 0) {
+            const new_index = index - 1
+            setIcons(history[new_index])
+            setIndex(new_index)
+        }
+    }
+
+    function redo() {
+        if (index < history.length - 1) {
+            const new_index = index + 1
+            setIcons(history[new_index])
+            setIndex(new_index)
         }
     }
 
@@ -90,8 +104,9 @@ function TilesBar() {
                 />)}
             </div>
             <div className="buttons">
-                {prev_icons != null && <UndoButton onclick={undo}/>}
+                <UndoButton onclick={undo} active={index > 0}/>
                 <RerollButton onclick={reroll}/>
+                <RedoButton onclick={redo} active={index < history.length - 1}/>
             </div>
         </div>
     )
@@ -115,8 +130,20 @@ function UndoButton(props) {
     return (
         <div className="undo-button">
             <button onClick={props.onclick}>
-                <span className="material-icons undo-icon" title="Undo">
+                <span className={"material-icons undo-icon" + (props.active ? "" : " disabled")} title="Undo">
                     undo
+                </span>
+            </button>
+        </div>
+    )
+}
+
+function RedoButton(props) {
+    return (
+        <div className="redo-button">
+            <button onClick={props.onclick}>
+                <span className={"material-icons redo-icon" + (props.active ? "" : " disabled")} title="Redo">
+                    redo
                 </span>
             </button>
         </div>
