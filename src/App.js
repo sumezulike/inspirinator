@@ -154,7 +154,7 @@ function App() {
     return (
         <div className="App">
             <header className="header">
-                <h1>Inspirinator</h1>
+                <h1>Inspirinator 3000</h1>
             </header>
             <TilesBar/>
             <footer className="footer">
